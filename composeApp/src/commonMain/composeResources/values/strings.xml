@@ -1,0 +1,11 @@
+<resources>
+    <string name="login_title">Login</string>
+    <string name="login_welcome_back">Welcome back!</string>
+    <string name="login_intro">Log in to your account and start watching your favorite YouTubers.</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_forgot">Forgot password?</string>
+    <string name="login_login">Login</string>
+    <string name="login_register">Don't have an account? </string>
+    <string name="login_signup">Sign up.</string>
+</resources>
