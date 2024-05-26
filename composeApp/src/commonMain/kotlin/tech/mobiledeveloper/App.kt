@@ -14,6 +14,7 @@ import tech.mobiledeveloper.features.create.CreatePostScreen
 import tech.mobiledeveloper.features.feed.FeedScreen
 import tech.mobiledeveloper.features.login.LoginScreen
 import tech.mobiledeveloper.features.paywall.PaywallScreen
+import tech.mobiledeveloper.features.splash.SplashScreen
 import tech.mobiledeveloper.navigation.AppScreens
 import tech.mobiledeveloper.navigation.LocalNavHost
 import tech.mobiledeveloper.navigation.main.MainScreen
@@ -38,8 +39,12 @@ internal fun FamousApp(
     ) {
         NavHost(
             navController = navController,
-            startDestination = AppScreens.Login.title
+            startDestination = AppScreens.Splash.title
         ) {
+            composable(route = AppScreens.Splash.title) {
+                SplashScreen(navController = navController)
+            }
+
             composable(route = AppScreens.Login.title) {
                 LoginScreen()
             }

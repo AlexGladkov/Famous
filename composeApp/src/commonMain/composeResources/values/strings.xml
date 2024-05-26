@@ -8,4 +8,17 @@
     <string name="login_login">Login</string>
     <string name="login_register">Don't have an account? </string>
     <string name="login_signup">Sign up.</string>
+
+    <string name="bottom_home">Home</string>
+    <string name="bottom_subscriptions">Subscriptions</string>
+    <string name="bottom_post">Post</string>
+    <string name="bottom_inbox">Inbox</string>
+    <string name="bottom_library">Library</string>
+
+    <string name="profile_title">Profile</string>
+    <string name="profile_subscribe">Subscribe</string>
+    <string name="profile_subscribed">Subscribed</string>
+    <string name="profile_videos">Videos</string>
+    <string name="profile_playlists">Playlists</string>
+    <string name="profile_about">About</string>
 </resources>

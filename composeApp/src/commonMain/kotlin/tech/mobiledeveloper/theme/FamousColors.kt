@@ -9,7 +9,8 @@ data class FamousColors(
     val primaryBackground: Color,
     val secondaryText: Color,
     val secondaryBackground: Color,
-    val tintColor: Color
+    val tintColor: Color,
+    val dividerColor: Color
 )
 
 object FamousTheme {
