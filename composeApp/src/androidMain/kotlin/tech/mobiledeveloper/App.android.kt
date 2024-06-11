@@ -7,6 +7,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import tech.mobiledeveloper.core.database.AppDatabase
+import tech.mobiledeveloper.core.database.getDatabaseBuilder
+import tech.mobiledeveloper.core.database.getRoomDatabase
+import tech.mobiledeveloper.core.di.InjectProvider
 
 class AndroidApp : Application() {
     companion object {
@@ -23,6 +27,13 @@ class AppActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        val appDatabase = getRoomDatabase(
+            getDatabaseBuilder(applicationContext)
+        )
+
+        InjectProvider.addDependency("database", appDatabase)
+
         setContent { App() }
     }
 }

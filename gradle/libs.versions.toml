@@ -1,7 +1,7 @@
 [versions]
 
-kotlin = "2.0.0-RC2"
-compose = "1.6.10-rc01"
+kotlin = "2.0.0"
+compose = "1.6.11"
 agp = "8.2.2"
 androidx-activityCompose = "1.9.0"
 androidx-uiTest = "1.6.7"
@@ -9,8 +9,11 @@ composeImageLoader = "1.7.8"
 kotlinx-coroutines = "1.8.1"
 ktor = "2.3.9"
 kotlinx-serialization = "1.6.3"
-kotlinx-datetime = "0.5.0"
+kotlinx-datetime = "0.6.0"
 multiplatformSettings = "1.1.1"
+
+room = "2.7.0-alpha03"
+sqlite = "2.5.0-alpha02"
 
 [libraries]
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -23,6 +26,7 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+kotlinx-uuid = "app.softwork:kotlinx-uuid-core:0.0.25"
 
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
@@ -31,13 +35,18 @@ ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor" }
 ktor-client-curl = { module = "io.ktor:ktor-client-curl", version.ref = "ktor" }
 ktor-client-winhttp = { module = "io.ktor:ktor-client-winhttp", version.ref = "ktor" }
 
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+room-sqlite = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
+
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 
 multiplatformSettings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
 
-compose-viewmodel = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0-beta01"
-compose-navigation = "org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha03"
+compose-viewmodel = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0"
+compose-navigation = "org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07"
 
 [plugins]
 
@@ -46,3 +55,5 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+room = { id = "androidx.room", version.ref = "room" }
+ksp = { id = "com.google.devtools.ksp", version = "2.0.0-1.0.22" }
