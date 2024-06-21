@@ -1,3 +1,6 @@
 package tech.mobiledeveloper.features.feed.models
 
-class FeedEvent
+sealed class FeedEvent {
+
+    class ClickItemFilter(val type: String) : FeedEvent()
+}
