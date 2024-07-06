@@ -19,7 +19,6 @@ import famous.composeapp.generated.resources.Res
 import famous.composeapp.generated.resources.profile_subscribe
 import famous.composeapp.generated.resources.profile_subscribed
 import famous.composeapp.generated.resources.profile_title
-import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import tech.mobiledeveloper.common.button.secondary.FSecondaryButton
@@ -30,7 +29,6 @@ import tech.mobiledeveloper.features.profile.ui.views.ProfilePlaylistsView
 import tech.mobiledeveloper.features.profile.ui.views.ProfileTabsView
 import tech.mobiledeveloper.features.profile.ui.views.ProfileVideosView
 import tech.mobiledeveloper.theme.AppTheme
-import tech.mobiledeveloper.theme.FamousColors
 import tech.mobiledeveloper.theme.FamousTheme
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -46,6 +44,7 @@ fun ProfileView(
                     .fillMaxWidth()
                     .height(72.dp)
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp)
+                    .statusBarsPadding()
             ) {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
