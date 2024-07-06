@@ -1,15 +1,20 @@
 package tech.mobiledeveloper.features.profile.ui
 
+import FIconButton
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -19,7 +24,9 @@ import famous.composeapp.generated.resources.Res
 import famous.composeapp.generated.resources.profile_subscribe
 import famous.composeapp.generated.resources.profile_subscribed
 import famous.composeapp.generated.resources.profile_title
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.resources.vectorResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import tech.mobiledeveloper.common.button.secondary.FSecondaryButton
 import tech.mobiledeveloper.features.profile.presentation.models.ProfileEvent
@@ -46,8 +53,19 @@ fun ProfileView(
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp)
                     .statusBarsPadding()
             ) {
+                FIconButton(
+                    modifier = Modifier.align(Alignment.CenterStart),
+                    onClick = {},
+                ) {
+                    Icon(
+                        modifier = Modifier.size(12.dp),
+                        painter = painterResource(Res.drawable.ic_close),
+                        tint = FamousTheme.colors.primaryText,
+                        contentDescription = "Go back"
+                    )
+                }
                 Text(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.align(Alignment.Center),
                     text = stringResource(Res.string.profile_title),
                     color = FamousTheme.colors.primaryText,
                     textAlign = TextAlign.Center,
