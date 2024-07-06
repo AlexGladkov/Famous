@@ -6,3 +6,9 @@
 ## How it made (Video)
 - [First Video](https://boosty.to/mobiledev/posts/faa9ebac-5576-4e32-a40d-53088aed6560)
 - [Second Video](https://boosty.to/mobiledev/posts/a363b58b-a25a-45ae-b2b6-21bf6399e078)
+
+## Build
+local.properties:
+sdk.dir=[path_to_local_android_sdk]
+E.g.:
+sdk.dir=/Users/Breslav/Library/Android/sdk
