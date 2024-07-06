@@ -8,11 +8,11 @@
 - [Second Video](https://boosty.to/mobiledev/posts/a363b58b-a25a-45ae-b2b6-21bf6399e078)
 
 ## Build
-local.properties:
+### local.properties:
 ```
 sdk.dir=[path_to_local_android_sdk]
 ```
-E.g.:
+### E.g.:
 ```
 sdk.dir=/Users/Breslav/Library/Android/sdk
 ```
