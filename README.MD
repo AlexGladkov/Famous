@@ -9,6 +9,10 @@
 
 ## Build
 local.properties:
+```
 sdk.dir=[path_to_local_android_sdk]
+```
 E.g.:
+```
 sdk.dir=/Users/Breslav/Library/Android/sdk
+```
