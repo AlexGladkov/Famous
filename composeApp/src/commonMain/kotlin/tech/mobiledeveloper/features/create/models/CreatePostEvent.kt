@@ -1,3 +1,6 @@
 package tech.mobiledeveloper.features.create.models
 
-class CreatePostEvent
+sealed class CreatePostEvent {
+    data object CreatePostClicked : CreatePostEvent()
+    class ValueChanged(val value: String) : CreatePostEvent()
+}

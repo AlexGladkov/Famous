@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -25,7 +24,7 @@ import famous.composeapp.generated.resources.bottom_home
 import famous.composeapp.generated.resources.bottom_post
 import famous.composeapp.generated.resources.bottom_subscriptions
 import org.jetbrains.compose.resources.stringResource
-import tech.mobiledeveloper.features.feed.FeedScreen
+import tech.mobiledeveloper.features.feed.presentation.FeedScreen
 import tech.mobiledeveloper.features.profile.ui.ProfileScreen
 import tech.mobiledeveloper.navigation.AppScreens
 import tech.mobiledeveloper.navigation.LocalNavHost

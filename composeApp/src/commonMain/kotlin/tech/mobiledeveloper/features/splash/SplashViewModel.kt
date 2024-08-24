@@ -1,6 +1,7 @@
 package tech.mobiledeveloper.features.splash
 
 import tech.mobiledeveloper.base.BaseViewModel
+import tech.mobiledeveloper.core.di.InjectProvider
 import tech.mobiledeveloper.features.login.domain.IsUserAuthorizedUseCase
 import tech.mobiledeveloper.features.splash.models.SplashAction
 
@@ -11,6 +12,7 @@ class SplashViewModel(
 ) {
     
     init {
+        InjectProvider.getDatabase()
         checkUserAuthorized()
     }
     

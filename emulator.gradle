@@ -1,0 +1,63 @@
+task emulate() {
+    def device = null
+
+    //Check for command-line parameter for device, which overrides any configuration
+    if (project.hasProperty('emulator.device'))
+    {
+        device = project.property('emulator.device')
+    }
+
+    //If no passed device name, fetch the name from the `local.properties file`
+    else
+    {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+        device = properties.getProperty('emulator.device')
+    }
+
+
+    //Initialize process to null to allow access during task execution
+    ProcessBuilder process = null
+
+
+    //If no device name configured, print warning message
+    if (device == null)
+    {
+        println	"To use the gradle emulator tasks, please define a value for 'emulator.device' in file 'local.properties' (generally something like 'Nexus_5X_API_27')"
+    }
+
+    //Otherwise, set up the background process in configuration step
+    else
+    {
+        process = new ProcessBuilder()
+                .directory(projectDir)
+                .command(android.getSdkDirectory().toString() + '/emulator/emulator', '-avd', "$device")
+    }
+
+
+    doLast {
+        //Fail if no device is configured
+        assert device != null :	"You cannot use gradle emulator tasks until a value for 'emulator.device' is provided in 'local.properties' or via the command line"
+
+
+        //When task is run, start the process and wait for 5 seconds before exiting
+        //This allows the emulator to start before attempting to install the APK
+        ext.process = process.start()
+        sleep(5 * 1000)
+    }
+}
+
+
+//Alias installDebug to install for easy usage
+task install(dependsOn: ['emulate', 'installDebug'])
+
+
+//Start the app on the emulated device, ensuring the emulator is running and the app is installed
+task runAndroid(type: Exec, dependsOn: 'install') {
+    commandLine	android.getAdbExe().toString(), 'shell', 'monkey', '-p', android.defaultConfig.applicationId, '1'
+}
+
+task logcat(type: Exec) {
+    commandLine android.getAdbExe().toString(), 'logcat'
+}
