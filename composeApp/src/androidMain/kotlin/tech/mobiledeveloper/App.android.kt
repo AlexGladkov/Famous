@@ -7,10 +7,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import tech.mobiledeveloper.core.database.AppDatabase
+import com.vk.id.VKID
 import tech.mobiledeveloper.core.database.getDatabaseBuilder
 import tech.mobiledeveloper.core.database.getRoomDatabase
 import tech.mobiledeveloper.core.di.InjectProvider
+import tech.mobiledeveloper.core.vk.AndroidVK
 
 class AndroidApp : Application() {
     companion object {
@@ -19,6 +20,7 @@ class AndroidApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        VKID.init(this)
         INSTANCE = this
     }
 }
@@ -32,7 +34,10 @@ class AppActivity : ComponentActivity() {
             getDatabaseBuilder(applicationContext)
         )
 
+        val androidVK = AndroidVK(this@AppActivity)
+
         InjectProvider.addDependency("database", appDatabase)
+        InjectProvider.addDependency(InjectProvider.VK_HELPER, androidVK)
 
         setContent { App() }
     }

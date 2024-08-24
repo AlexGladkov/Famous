@@ -1,6 +1,7 @@
 package tech.mobiledeveloper.core.di
 
 import tech.mobiledeveloper.core.database.AppDatabase
+import tech.mobiledeveloper.core.vk.VKHelper
 
 object InjectProvider {
     private val dependencies: HashMap<String, Any> = hashMapOf()
@@ -14,5 +15,8 @@ object InjectProvider {
         return dependencies[key] as T
     }
     
-    fun getDatabase(): AppDatabase = getDependency<AppDatabase>("database")
+    fun getDatabase(): AppDatabase = getDependency("database")
+    fun getVKAccess(): VKHelper = getDependency(VK_HELPER)
+
+    const val VK_HELPER = "vk_helper"
 }

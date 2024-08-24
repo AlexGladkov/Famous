@@ -18,6 +18,10 @@ plugins {
 kotlin {
     androidTarget {
         compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+
             compileTaskProvider {
                 compilerOptions {
                     jvmTarget.set(JvmTarget.JVM_1_8)
@@ -99,6 +103,9 @@ kotlin {
             implementation(libs.androidx.activityCompose)
             implementation(libs.kotlinx.coroutines.android)
             implementation(libs.ktor.client.okhttp)
+
+            implementation(libs.vk.one.tap)
+            implementation(libs.vk.id)
         }
 
         jvmMain.dependencies {
@@ -126,12 +133,21 @@ android {
         versionCode = 1
         versionName = "1.0.0"
 
+        addManifestPlaceholders(mapOf(
+            "VKIDRedirectHost" to "vk.com",
+            "VKIDRedirectScheme" to "",
+            "VKIDClientID" to "",
+            "VKIDClientSecret" to ""
+        ))
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     sourceSets["main"].apply {
         manifest.srcFile("src/androidMain/AndroidManifest.xml")
         res.srcDirs("src/androidMain/res")
     }
+
     //https://developer.android.com/studio/test/gradle-managed-devices
     @Suppress("UnstableApiUsage")
     testOptions {
@@ -143,10 +159,14 @@ android {
             }
         }
     }
+
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     buildFeatures {
         compose = true
     }
@@ -174,6 +194,7 @@ dependencies {
     add("kspIosArm64", libs.room.compiler)
     add("kspIosSimulatorArm64", libs.room.compiler)
     add("kspJvm", libs.room.compiler)
+    add("coreLibraryDesugaring", libs.android.desugaring)
 }
 
 room {
